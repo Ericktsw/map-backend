@@ -3,7 +3,12 @@ const cors = require("cors");
 const admin = require("./firebase");
 
 const app = express();
-app.use(cors());
+
+// ✅ Liberar acesso apenas do seu GitHub Pages:
+app.use(cors({
+  origin: "https://ericktsw.github.io"
+}));
+
 app.use(express.json());
 
 // Middleware para validar token Firebase
